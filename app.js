@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const workspaces = {
     marketing: {
       name: "Agencia de Growth & Marketing",
-      domain: "leads.growth.aloria.ai",
+      domain: "leads.growth.aloria.mx",
       salesRep: "Sofía Ramos · Directora de Growth",
       avgBudget: "$6,450",
       leadsCaptados: "184",
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     consultoria: {
       name: "Consultoría de Procesos & CRM",
-      domain: "leads.consulting.aloria.ai",
+      domain: "leads.consulting.aloria.mx",
       salesRep: "Carlos Mendoza · Socio Consultor",
       avgBudget: "$12,800",
       leadsCaptados: "94",
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     tecnologia: {
       name: "Integrador de TI & Cloud",
-      domain: "leads.cloud.aloria.ai",
+      domain: "leads.cloud.aloria.mx",
       salesRep: "Elena Garrido · Arquitecta Cloud",
       avgBudget: "$22,400",
       leadsCaptados: "120",
