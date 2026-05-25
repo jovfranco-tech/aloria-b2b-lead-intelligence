@@ -1065,29 +1065,33 @@ ${risks}
     mLeadsHigh.textContent = ws.leadsHigh;
     mBudgetAvg.textContent = ws.avgBudget;
     mEstancados.textContent = ws.estancados;
-    mFrecuente.textContent = ws.frecuente;
+    if (mFrecuente) {
+      mFrecuente.textContent = ws.frecuente;
+    }
     recomendedLeadText.textContent = ws.recomendedLead;
 
     // Gráficos de problemas
-    dashboardProblemsChart.innerHTML = "";
-    ws.problems.forEach(p => {
-      const row = document.createElement("div");
-      row.className = "issue-row";
-      
-      const safeLabel = escapeHTML(p.label);
-      const safePct = escapeHTML(p.pct);
-      
-      row.innerHTML = `
-        <div class="issue-info">
-          <span class="issue-label">${safeLabel}</span>
-          <span class="issue-pct">${safePct}%</span>
-        </div>
-        <div class="issue-track">
-          <div class="issue-bar" style="width: ${safePct}%;"></div>
-        </div>
-      `;
-      dashboardProblemsChart.appendChild(row);
-    });
+    if (dashboardProblemsChart) {
+      dashboardProblemsChart.innerHTML = "";
+      ws.problems.forEach(p => {
+        const row = document.createElement("div");
+        row.className = "issue-row";
+        
+        const safeLabel = escapeHTML(p.label);
+        const safePct = escapeHTML(p.pct);
+        
+        row.innerHTML = `
+          <div class="issue-info">
+            <span class="issue-label">${safeLabel}</span>
+            <span class="issue-pct">${safePct}%</span>
+          </div>
+          <div class="issue-track">
+            <div class="issue-bar" style="width: ${safePct}%;"></div>
+          </div>
+        `;
+        dashboardProblemsChart.appendChild(row);
+      });
+    }
 
     // Cargar historial de leads en la tabla
     renderLeadsTable(ws.suggestedLeads);
@@ -1209,7 +1213,7 @@ ${risks}
     const selectedTime = document.querySelector(".calendar-slot.selected")?.dataset.time || "09:00 AM";
     const ws = workspaces[currentWorkspaceKey];
     
-    alert(`¡Discovery Call confirmada con éxito!\n\nLlamada programada con ${ws.salesRep} para el día ${selectedDay} de Junio de 2026 a las ${selectedTime}.\n\nEl AI Sales Brief estructurado con los dolores comerciales se ha sincronizado en tiempo real a tu CRM.`);
+    alert(`¡Discovery Call confirmada con éxito!\n\nLlamada programada con ${ws.salesRep} para el día ${selectedDay} de Junio de 2026 a las ${selectedTime}.\n\nEl AI Sales Brief quedó preparado como simulación para una futura sincronización con CRM.`);
   });
 
   // ==========================================
