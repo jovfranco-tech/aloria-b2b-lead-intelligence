@@ -4,6 +4,17 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   
+  // Helper para escapar HTML (Prevenir ataques XSS en la demo)
+  function escapeHTML(str) {
+    if (str === null || str === undefined) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   // 1. CONFIGURACIÓN DE WORKSPACES MOCK (REQUISITO 13)
   const workspaces = {
     marketing: {
@@ -849,15 +860,15 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "demo-lead-dyn",
       company: "Nuevo Lead Demo",
       industry: currentWorkspaceKey === "marketing" ? "E-Commerce / Marketing" : currentWorkspaceKey === "consultoria" ? "Servicios Prof." : "Infraestructura Cloud",
-      initialLead: chatAnswers.problema || "Necesito cotizar una automatización comercial",
-      budget: chatAnswers.presupuesto || "$5,000 USD/mes",
+      initialLead: escapeHTML(chatAnswers.problema) || "Necesito cotizar una automatización comercial",
+      budget: escapeHTML(chatAnswers.presupuesto) || "$5,000 USD/mes",
       urgency: "Alta (30 días)",
       priority: "high",
       score: 94,
-      decisor: chatAnswers.decisor || "Director General",
-      tools: chatAnswers.herramientas || "Excel, WhatsApp",
-      problem: chatAnswers.problema || "Pérdida de prospectos en CRM y desorden en captación comercial.",
-      summary: `Prospecto de ${currentWorkspaceKey === "marketing" ? "Growth" : currentWorkspaceKey === "consultoria" ? "Consultoría" : "Cloud"} calificado en vivo. Presenta problemas graves de velocidad y dolores en captura manual.`,
+      decisor: escapeHTML(chatAnswers.decisor) || "Director General",
+      tools: escapeHTML(chatAnswers.herramientas) || "Excel, WhatsApp",
+      problem: escapeHTML(chatAnswers.problema) || "Pérdida de prospectos en CRM y desorden en captación comercial.",
+      summary: `Prospecto de ${currentWorkspaceKey === "marketing" ? "Growth" : currentWorkspaceKey === "consultoria" ? "Consultoría" : "Cloud"} calificado en escenario demo. Presenta problemas graves de velocidad y dolores en captura manual.`,
       opportunity: "Implementación de Aloria Suite para automatizar calificación conversacional y sincronizar CRM. Ticket mensual estimado de $5,000 USD.",
       painPoints: "Demoras de respuesta de vendedores, falta de visibilidad en volumen.",
       risks: "Integración con ERP/CRM legacy existente.",
@@ -922,22 +933,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderWhatsAppMessage(leadData) {
+    // Escapar variables interpoladas en HTML
+    const company = escapeHTML(leadData.company);
+    const industry = escapeHTML(leadData.industry);
+    const score = escapeHTML(leadData.score);
+    const revenuePotential = escapeHTML(leadData.revenuePotential);
+    const urgency = escapeHTML(leadData.urgency);
+    const decisor = escapeHTML(leadData.decisor);
+    const painPoints = escapeHTML(leadData.painPoints);
+    const scope = escapeHTML(leadData.scope);
+    const risks = escapeHTML(leadData.risks);
+
     const msg = `*ALORIA AI LEAD BRIEF* 🎯
 ---------------------------------------
-💼 *Empresa:* ${leadData.company} (${leadData.industry})
-📊 *Fit Score:* ${leadData.score}% (Alta Prioridad)
-💰 *Revenue Potential:* ${leadData.revenuePotential}
-⏳ *Urgencia:* ${leadData.urgency}
-👤 *Decisor:* ${leadData.decisor}
+💼 *Empresa:* ${company} (${industry})
+📊 *Fit Score:* ${score}% (Alta Prioridad)
+💰 *Revenue Potential:* ${revenuePotential}
+⏳ *Urgencia:* ${urgency}
+👤 *Decisor:* ${decisor}
 
 🔴 *Dolores Detectados:*
-"${leadData.painPoints}"
+"${painPoints}"
 
 ⚙️ *Alcance Sugerido:*
-${leadData.scope}
+${scope}
 
 ⚠️ *Riesgo Comercial:*
-${leadData.risks}
+${risks}
 
 📅 *Acción Comercial:* Agendado Discovery de 30 min.`;
 
@@ -1051,13 +1073,17 @@ ${leadData.risks}
     ws.problems.forEach(p => {
       const row = document.createElement("div");
       row.className = "issue-row";
+      
+      const safeLabel = escapeHTML(p.label);
+      const safePct = escapeHTML(p.pct);
+      
       row.innerHTML = `
         <div class="issue-info">
-          <span class="issue-label">${p.label}</span>
-          <span class="issue-pct">${p.pct}%</span>
+          <span class="issue-label">${safeLabel}</span>
+          <span class="issue-pct">${safePct}%</span>
         </div>
         <div class="issue-track">
-          <div class="issue-bar" style="width: ${p.pct}%;"></div>
+          <div class="issue-bar" style="width: ${safePct}%;"></div>
         </div>
       `;
       dashboardProblemsChart.appendChild(row);
@@ -1092,12 +1118,19 @@ ${leadData.risks}
         label = "Falta Info";
       }
       
+      const safeCompany = escapeHTML(lead.company);
+      const safeInitialLead = escapeHTML(lead.initialLead);
+      const safeScore = escapeHTML(lead.score);
+      const safeLabel = escapeHTML(label);
+      const safeBadgeColor = escapeHTML(badgeColor);
+      const safeBadgeBg = escapeHTML(badgeBg);
+      
       // data-labels agregadas para el convertidor móvil responsive (Requisito 7 & 13)
       tr.innerHTML = `
-        <td data-label="Empresa"><strong style="color: var(--color-text);">${lead.company}</strong></td>
-        <td data-label="Estado"><span class="leads-table-badge" style="color: ${badgeColor}; background: ${badgeBg};">${label}</span></td>
-        <td data-label="Problema Detectado" style="color: var(--color-text-muted); max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">"${lead.initialLead}"</td>
-        <td data-label="Score" style="font-weight: 700; color: var(--color-teal);">${lead.score}</td>
+        <td data-label="Empresa"><strong style="color: var(--color-text);">${safeCompany}</strong></td>
+        <td data-label="Estado"><span class="leads-table-badge" style="color: ${safeBadgeColor}; background: ${safeBadgeBg};">${safeLabel}</span></td>
+        <td data-label="Problema Detectado" style="color: var(--color-text-muted); max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">"${safeInitialLead}"</td>
+        <td data-label="Score" style="font-weight: 700; color: var(--color-teal);">${safeScore}</td>
         <td data-label="Siguiente Acción"><span style="color: var(--color-teal); font-weight: 700; font-size: 0.76rem;">Cargar Brief ↗</span></td>
       `;
 
