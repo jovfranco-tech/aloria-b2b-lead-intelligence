@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aloria B2B Lead Intelligence · Demo Premium AI Commerce</title>
+  <meta name="description" content="Aloria B2B Lead Intelligence califica prospectos, genera briefs comerciales y prioriza oportunidades antes de la primera llamada.">
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" href="index.css">
+  <script>
+    {
+      const colorScheme = localStorage.getItem("color-scheme") || "dark";
+      document.documentElement.setAttribute("data-theme", colorScheme);
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER & STICKY NAVIGATION BAR (Requisito 12)
+       ========================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <div class="logo-group">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">
+          Aloria 
+          <span class="logo-tag">B2B Intelligence</span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#hero" class="nav-link active">Inicio</a>
+        <a href="#calificador" class="nav-link">Calificador</a>
+        <a href="#briefCard" class="nav-link">Brief</a>
+        <a href="#dashboard" class="nav-link">Dashboard</a>
+        <a href="#casos-de-uso" class="nav-link">Casos de Uso</a>
+        <a href="#como-funciona" class="nav-link">Cómo Funciona</a>
+      </div>
+
+      <div class="navbar-actions">
+        <!-- Selector de Workspace (Requisito 13 & 15) -->
+        <div class="workspace-selector-container">
+          <button class="workspace-select" id="workspaceBtn" aria-label="Cambiar Workspace Demo" aria-haspopup="listbox">
+            <svg viewBox="0 0 24 24" width="12" height="12"><path d="M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 16H5v-2h7v2zm0-4H5v-2h7v2zm0-4H5V6h7v2zm7 8h-5v-2h5v2zm0-4h-5v-2h5v2zm0-4h-5V6h5v2z" fill="currentColor"/></svg>
+            <span id="currentWorkspaceText">Agencia de Growth & Marketing</span>
+            <svg viewBox="0 0 24 24" width="10" height="10"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+          </button>
+          
+          <div class="workspace-dropdown" id="workspaceDropdown" role="listbox">
+            <div class="workspace-option active" data-workspace="marketing" role="option" aria-selected="true">
+              <span class="workspace-option-name">
+                <svg viewBox="0 0 24 24" width="12" height="12" style="color: var(--color-teal);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/></svg>
+                Agencia de Growth
+              </span>
+              <span class="workspace-option-desc">Enfoque en volumen, ROI y leads comerciales.</span>
+            </div>
+            <div class="workspace-option" data-workspace="consultoria" role="option" aria-selected="false">
+              <span class="workspace-option-name">
+                <svg viewBox="0 0 24 24" width="12" height="12" style="color: var(--color-aqua);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+                Consultoría de Procesos
+              </span>
+              <span class="workspace-option-desc">Enfoque en alcance, decisores y fit de servicio.</span>
+            </div>
+            <div class="workspace-option" data-workspace="tecnologia" role="option" aria-selected="false">
+              <span class="workspace-option-name">
+                <svg viewBox="0 0 24 24" width="12" height="12" style="color: var(--priority-info);"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z" fill="currentColor"/></svg>
+                Integrador de TI & Cloud
+              </span>
+              <span class="workspace-option-desc">Enfoque en herramientas, urgencia y presupuestos.</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#calificador" class="glow-btn glow-btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.78rem;">Agendar Demo</a>
+        
+        <div class="hamburger" id="hamburger" aria-label="Abrir Menú de Navegación" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       1. HERO PREMIUM DE ALTO IMPACTO (Requisito 2)
+       ========================================== -->
+  <header class="hero" id="hero">
+    <div class="container hero-content">
+      <div class="section-tag">AI Commerce para Servicios B2B</div>
+      <h1 class="hero-headline">Convierte leads incompletos en oportunidades calificadas.</h1>
+      <p class="hero-subheadline">
+        Aloria B2B Lead Intelligence califica prospectos, genera briefs comerciales y prioriza oportunidades antes de la primera llamada.
+      </p>
+      
+      <div class="hero-actions">
+        <div class="hero-actions-buttons">
+          <a href="#calificador" class="glow-btn glow-btn-primary">Probar calificador</a>
+          <a href="#dashboard" class="glow-btn glow-btn-secondary">Ver dashboard demo</a>
+        </div>
+        <span class="microcopy-badge" style="margin-top: 0.5rem; text-transform: none; font-size: 0.64rem;">
+          Demo con datos simulados · Sin backend real · Preparada para WhatsApp, CRM y agenda comercial
+        </span>
+      </div>
+
+      <!-- Hero Visual Mockup: Composición Integral de Producto -->
+      <div class="hero-mockup-wrapper">
+        <div class="hero-showcase-grid">
+          <!-- Chat de Calificación -->
+          <div class="showcase-chat">
+            <div class="showcase-chat-header">
+              <span>Aloria AI Sales Concierge</span>
+              <span class="microcopy-badge" style="padding: 0.08rem 0.3rem; font-size: 0.6rem;">Active</span>
+            </div>
+            <div class="showcase-bubbles">
+              <div class="showcase-bubble showcase-bubble-user">
+                "Hola, me interesa automatizar mi proceso comercial. ¿Qué precio tiene?"
+              </div>
+              <div class="showcase-bubble showcase-bubble-ai">
+                <span class="chat-meta-indicator">[Intent detected: Automatización comercial]</span>
+                "¡Hola! Claro. Para darte una propuesta exacta, necesito hacerte unas preguntas rápidas. ¿Qué dolor comercial específico buscas resolver primero?"
+              </div>
+              <div class="showcase-bubble showcase-bubble-user">
+                "Los asesores reciben leads por WhatsApp y se saturan gestionándolos en Excel. Perdemos el 30% de las ventas por lentitud."
+              </div>
+            </div>
+            <div class="showcase-lead-state">
+              <svg viewBox="0 0 24 24" width="12" height="12" style="color: var(--color-teal); margin-right: 0.3rem;"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="currentColor"/></svg>
+              AI Status: [Intent detected: CRM handoff & Lead capture automation]
+            </div>
+          </div>
+
+          <!-- Metadatos de Oportunidad Extraídos -->
+          <div class="showcase-metrics">
+            <div class="glass-panel showcase-score-panel">
+              <div>
+                <span class="brief-label" style="font-size: 0.65rem;">Overall Opportunity Score</span>
+                <div style="font-size: 0.72rem; font-weight: 700; color: var(--priority-high); margin-top: 0.15rem; letter-spacing: 0.02em;">ALTA PRIORIDAD</div>
+              </div>
+              <div class="showcase-score-num">94%</div>
+            </div>
+
+            <div class="glass-panel showcase-bars">
+              <div class="brief-label" style="margin-bottom: 0.4rem;">Metadatos Calificados</div>
+              
+              <div class="brief-rich-block" style="margin-bottom: 0.5rem; border: none;">
+                <span style="font-size: 0.62rem; color: var(--color-text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.02em;">Recommended next step</span>
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Schedule discovery call de 30 min</span>
+              </div>
+
+              <div class="showcase-brief-preview">
+                <strong>NovaOps Consulting:</strong> 150 leads/mes de WhatsApp. Tardan 24 horas. Socio decisor involucrado. Dolores graves de lentitud.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. AI LEAD QUALIFICATION ASSISTANT (Chatbot & Scoring)
+       ========================================== -->
+  <section class="qualificator-section" id="calificador">
+    <div class="container">
+      <div class="section-tag">AI Sales Concierge para Servicios B2B</div>
+      <h2 class="section-title">AI Lead Qualification Assistant</h2>
+      <p class="section-subtitle">
+        Selecciona una consulta rápida o escribe tu lead vago comercial en el chat para experimentar cómo la IA califica e interactúa de manera consultiva en segundos.
+      </p>
+
+      <!-- Stepper / Progress Tracker (Requisito 7) -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; background: rgba(9,14,30,0.45); border: 1px solid var(--border-color); padding: 0.65rem 1.25rem; border-radius: 8px; flex-wrap: wrap; gap: 0.5rem;" aria-label="Progreso de Calificación del Prospecto">
+        <span style="font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: var(--color-teal); letter-spacing: 0.05em;">Fase de Calificación:</span>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;" id="stepperContainer">
+          <span class="microcopy-badge" id="stepNew" style="border-color: var(--color-teal); color: var(--color-teal);">1. New Inquiry</span>
+          <span class="microcopy-badge" id="stepProgress">2. Qualification in progress</span>
+          <span class="microcopy-badge" id="stepScore">3. Scoring complete</span>
+          <span class="microcopy-badge" id="stepBrief">4. Brief generated</span>
+          <span class="microcopy-badge" id="stepSales">5. Ready for Sales</span>
+        </div>
+      </div>
+
+      <div class="qualificator-grid">
+        <!-- Panel del Chatbot Assistant -->
+        <div class="glass-panel assistant-panel">
+          <div class="assistant-header">
+            <div class="assistant-info">
+              <div class="assistant-avatar">AI</div>
+              <div>
+                <div class="assistant-title" id="assistantTitleName">Aloria Concierge</div>
+                <div class="assistant-status">
+                  <span class="mockup-dot-active" style="animation: pulseGlow 1.5s infinite;"></span>
+                  <span>AI Sales Concierge Activo</span>
+                </div>
+              </div>
+            </div>
+            
+            <button class="autofill-btn" id="autofillBtn" aria-label="Completar Simulación Acelerada">
+              <svg viewBox="0 0 24 24" width="12" height="12" style="margin-right: 0.25rem;"><path d="M7.5 5.6L10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8L17 14l1.4 2.5-2.5-1.4-1.4 2.5 1.4-2.5-2.5 1.4 2.5 1.4-1.4 2.5zm0-9l-2.5 1.4L18.6 5.3 17 2.8 18.4 5.3 16 3.9l2.5 1.4 1.4-2.5z" fill="currentColor"/></svg>
+              Simular Flujo Completo
+            </button>
+          </div>
+
+          <!-- Caja de Conversación -->
+          <div class="chat-conversation" id="chatConversation" aria-live="polite">
+            <!-- Burbujas inyectadas por JS -->
+          </div>
+
+          <!-- Chips de Respuestas Rápidas (Requisito 2) -->
+          <div class="chat-quick-options" id="chatQuickOptions" aria-label="Opciones rápidas de respuesta">
+            <!-- Chips inyectados por JS -->
+          </div>
+
+          <!-- Input manual -->
+          <div class="assistant-input-area">
+            <div class="chat-input-wrapper">
+              <textarea class="chat-textarea" id="chatTextarea" placeholder="Escribe tu consulta o respuesta aquí o selecciona un chip rápido..."></textarea>
+            </div>
+            <button class="send-chat-btn" id="sendChatBtn" aria-label="Enviar respuesta a la IA">
+              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sidebar de Scoring y Brief -->
+        <div class="scoring-sidebar">
+          
+          <!-- 3. Lead Scoring Card (Requisito 5) -->
+          <div class="glass-panel scoring-card" id="scoringCard">
+            <div class="scoring-summary-row">
+              <div>
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.15rem;">Lead Scoring</h3>
+                <span class="priority-badge-large" id="priorityBadge" style="color: var(--color-text-dim); background: rgba(255,255,255,0.015); border-color: var(--border-color);">
+                  Pendiente
+                </span>
+              </div>
+              
+              <div class="radial-score-wrapper">
+                <svg class="radial-svg" aria-label="Puntuación General de Fit">
+                  <circle class="radial-bg" cx="37" cy="37" r="33"></circle>
+                  <circle class="radial-progress" id="radialProgress" cx="37" cy="37" r="33"></circle>
+                </svg>
+                <div class="radial-text" id="radialText">0%</div>
+              </div>
+            </div>
+
+            <!-- Revenue Potential UI (Requisito 5) -->
+            <div class="revenue-potential-wrapper">
+              <span class="brief-label" style="margin-bottom: 0; font-size: 0.65rem;">Revenue Potential</span>
+              <span class="revenue-potential-value" id="revenuePotentialText">—</span>
+            </div>
+
+            <!-- Criterios Individuales -->
+            <div class="scoring-bars-list">
+              <div class="mockup-bar-row">
+                <div class="mockup-bar-info"><span>Fit de Negocio (Alcance)</span><span id="fitScoreText" style="font-weight: 700; color: var(--color-teal);">0%</span></div>
+                <div class="mockup-bar-track"><div class="mockup-bar-fill" id="fitScoreFill" style="width: 0%;"></div></div>
+              </div>
+              
+              <div class="mockup-bar-row">
+                <div class="mockup-bar-info"><span>Urgencia de Cierre</span><span id="urgencyScoreText" style="font-weight: 700; color: var(--color-teal);">0%</span></div>
+                <div class="mockup-bar-track"><div class="mockup-bar-fill" id="urgencyScoreFill" style="width: 0%;"></div></div>
+              </div>
+
+              <div class="mockup-bar-row">
+                <div class="mockup-bar-info"><span>Claridad de Presupuesto</span><span id="budgetScoreText" style="font-weight: 700; color: var(--color-teal);">0%</span></div>
+                <div class="mockup-bar-track"><div class="mockup-bar-fill" id="budgetScoreFill" style="width: 0%;"></div></div>
+              </div>
+
+              <div class="mockup-bar-row">
+                <div class="mockup-bar-info"><span>Madurez de Decisión</span><span id="decisionScoreText" style="font-weight: 700; color: var(--color-teal);">0%</span></div>
+                <div class="mockup-bar-track"><div class="mockup-bar-fill" id="decisionScoreFill" style="width: 0%;"></div></div>
+              </div>
+
+              <div class="mockup-bar-row">
+                <div class="mockup-bar-info"><span>Complejidad Técnica</span><span id="complexityScoreText" style="font-weight: 700; color: var(--color-teal);">0%</span></div>
+                <div class="mockup-bar-track"><div class="mockup-bar-fill" id="complexityScoreFill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+
+            <!-- Interpretación Diagnóstica Box (Requisito 5) -->
+            <div class="diagnostic-box">
+              <div class="diagnostic-title">Interpretación Diagnóstica</div>
+              <p class="diagnostic-text" id="diagnosticText">
+                Ingresa una consulta en el chat o simula el proceso para calcular el scoring ejecutivo de oportunidad.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. AI Sales Brief Card (Requisito 6) -->
+          <div class="glass-panel brief-card" id="briefCard">
+            <div class="brief-header">
+              <div class="brief-company-name" id="briefCompanyName">Esperando Datos...</div>
+              <div class="brief-industry" id="briefIndustry">Completa el cuestionario</div>
+            </div>
+            
+            <p style="font-size: 0.72rem; color: var(--color-text-dim); margin-top: -0.75rem; margin-bottom: 1rem; font-family: var(--font-secondary);">
+              Contexto listo para el equipo comercial antes de la primera llamada.
+            </p>
+
+            <div class="brief-grid">
+              <div class="brief-item">
+                <span class="brief-label">Stakeholder / Decisor</span>
+                <span class="brief-value" id="briefDecisor">—</span>
+              </div>
+              <div class="brief-item">
+                <span class="brief-label">Presupuesto Estimado</span>
+                <span class="brief-value" id="briefPresupuesto">—</span>
+              </div>
+              <div class="brief-item">
+                <span class="brief-label">Urgencia</span>
+                <span class="brief-value" id="briefUrgencia">—</span>
+              </div>
+              <div class="brief-item">
+                <span class="brief-label">Alcance probable</span>
+                <span class="brief-value" id="briefAlcance">—</span>
+              </div>
+            </div>
+
+            <div class="brief-rich-section">
+              <div class="brief-rich-block">
+                <span class="brief-label">Lead Summary</span>
+                <p class="brief-rich-text" id="briefSummary">—</p>
+              </div>
+
+              <div class="brief-rich-block">
+                <span class="brief-label">Business Problem</span>
+                <p class="brief-rich-text" id="briefProblema">—</p>
+              </div>
+
+              <div class="brief-rich-block">
+                <span class="brief-label">Pain Points Detectados</span>
+                <p class="brief-rich-text" id="briefPainPoints" style="border-left-color: var(--color-aqua);">—</p>
+              </div>
+              
+              <div class="brief-rich-block">
+                <span class="brief-label">Main Commercial Risk</span>
+                <p class="brief-rich-text" id="briefRiesgos" style="border-left-color: var(--priority-high);">—</p>
+              </div>
+
+              <div class="brief-rich-block">
+                <span class="brief-label">Sales Opportunity</span>
+                <p class="brief-rich-text" id="briefOpportunity" style="border-left-color: var(--color-teal);">—</p>
+              </div>
+
+              <div class="brief-rich-block">
+                <span class="brief-label">Suggested Discovery Questions</span>
+                <ul class="brief-questions-list" id="briefPreguntas">
+                  <li>—</li>
+                </ul>
+              </div>
+
+              <!-- Bloque Destacado Recommended next action (Requisito 6) -->
+              <div class="brief-rich-block" style="margin-top: 0.5rem;">
+                <span class="brief-label" style="color: var(--color-teal);">Recommended next action</span>
+                <div class="recommended-action-highlight" id="briefNextAction">
+                  Selecciona una consulta comercial en el chat...
+                </div>
+              </div>
+            </div>
+
+            <div class="brief-destinations">
+              <!-- Human in the loop Badge (Requisito 14) -->
+              <span class="microcopy-badge" style="border-color: var(--color-teal); color: var(--color-teal); font-size: 0.6rem;">
+                AI-assisted, sales-approved
+              </span>
+              <div class="brief-dest-icons">
+                <div class="brief-dest-icon" title="HubSpot">
+                  <svg viewBox="0 0 24 24"><path d="M18.8 10.3c-.6 0-1.1.2-1.5.5L14 8c.2-.5.2-1 .1-1.5-.3-1-1.1-1.8-2.1-2.1-.5-.1-1.1-.1-1.6 0-1 .3-1.8 1.1-2.1 2.1 0 .3-.1.6-.1.9V13.8L5.5 15c-.4-.3-.9-.5-1.5-.5-1.4 0-2.5 1.1-2.5 2.5s1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5c0-.6-.2-1.1-.5-1.5L9.3 14c.5.2 1 .2 1.5.1.5-.1.9-.3 1.3-.6l3.3 2.8c-.3.4-.5.9-.5 1.5 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5-1.1-2.5-2.5-2.5c-.6 0-1.1.2-1.5.5l-3.3-2.8c.2-.4.3-.9.3-1.4 0-.3-.1-.6-.1-.9V7.9l2.7-2.3c.4.3.9.5 1.5.5 1.4 0 2.5-1.1 2.5-2.5S20.2 1 18.8 1 16.3 2.1 16.3 3.5c0 .6.2 1.1.5 1.5L14 7.3c-.5-.2-1-.2-1.5-.1-.5.1-.9.3-1.3.6L7.9 5c.3-.4.5-.9.5-1.5C8.4 2.1 7.3 1 5.9 1 4.5 1 3.4 2.1 3.4 3.5s1.1 2.5 2.5 2.5c.6 0 1.1-.2 1.5-.5L10.7 8c-.2.5-.2 1-.1 1.5.3 1 1.1 1.8 2.1 2.1h.4L17 14c-.3.4-.5.9-.5 1.5 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5-1.1-2.5-2.7-2.5z" fill="currentColor"/></svg>
+                </div>
+                <div class="brief-dest-icon" title="Salesforce">
+                  <svg viewBox="0 0 24 24"><path d="M19.2 11.2c-.3 0-.6.1-.8.2C18.1 9.3 16.2 8 14 8c-.6 0-1.2.1-1.7.3C11.5 6.6 9.4 5.5 7 5.5c-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5h12.2c2.2 0 4-1.8 4-4s-1.8-4.3-4-4.3zm-12.2 6c-2.2 0-4-1.8-4-4s1.8-4 4-4c1.8 0 3.3 1.2 3.8 2.8.2.7.9 1.2 1.6 1.2h.1c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5h-5.5z" fill="currentColor"/></svg>
+                </div>
+                <div class="brief-dest-icon" title="Slack">
+                  <svg viewBox="0 0 24 24"><path d="M5.04 15.12c0 1.38-1.12 2.5-2.5 2.5S.04 16.5.04 15.12s1.12-2.5 2.5-2.5h2.5v2.5zm1.26 0c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v6.3c0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5v-6.3zm2.5-6.3c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v2.5h-2.5c-1.38 0-2.5-1.12-2.5-2.5zm0 1.26c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V3.78c0-1.38-1.12-2.5-2.5-2.5S8.82 2.4 8.82 3.78v6.3zm6.3-5.04c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v2.5h-2.5c-1.38 0-2.5-1.12-2.5-2.5zm-1.26 0c0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5V3.78c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v6.3zm-2.5 6.3c0 1.38-1.12 2.5-2.5 2.5s-2.5-1.12-2.5-2.5v-2.5h2.5c1.38 0 2.5 1.12 2.5 2.5zm0-1.26c0-1.38-1.12-2.5-2.5-2.5S8.82 10.22 8.82 11.6v6.3c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5v-6.3z" fill="currentColor"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       BOOKING / CALENDAR RESERVATION
+       ========================================== -->
+  <section class="booking-section" id="agenda-section" style="display: none; border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-tag">Agenda Integrada</div>
+      <h2 class="section-title">Agendamiento Instantáneo</h2>
+      <p class="section-subtitle">
+        Una vez calificado como prioridad, Aloria despliega el calendario corporativo. El comercial recibe el brief y las preguntas sugeridas directo en su WhatsApp.
+      </p>
+
+      <div class="booking-grid">
+        <!-- Calendario Simulado -->
+        <div class="glass-panel calendar-sim">
+          <div class="calendar-header">
+            <span class="calendar-title" id="calendarMonth">Junio 2026</span>
+            <div class="calendar-arrows">
+              <button class="calendar-arrow">&lt;</button>
+              <button class="calendar-arrow">&gt;</button>
+            </div>
+          </div>
+          
+          <div class="calendar-grid" aria-label="Calendario de Agendamiento">
+            <span class="calendar-day-label">Lu</span>
+            <span class="calendar-day-label">Ma</span>
+            <span class="calendar-day-label">Mi</span>
+            <span class="calendar-day-label">Ju</span>
+            <span class="calendar-day-label">Vi</span>
+            <span class="calendar-day-label">Sa</span>
+            <span class="calendar-day-label">Do</span>
+            
+            <span class="calendar-day empty"></span>
+            <span class="calendar-day empty"></span>
+            <span class="calendar-day empty"></span>
+            <span class="calendar-day empty"></span>
+            <span class="calendar-day available" data-day="1">1</span>
+            <span class="calendar-day available" data-day="2">2</span>
+            <span class="calendar-day empty"></span>
+            
+            <span class="calendar-day empty"></span>
+            <span class="calendar-day available" data-day="8">8</span>
+            <span class="calendar-day available active" data-day="9">9</span>
+            <span class="calendar-day available" data-day="10">10</span>
+            <span class="calendar-day available" data-day="11">11</span>
+            <span class="calendar-day available" data-day="12">12</span>
+            <span class="calendar-day empty"></span>
+
+            <span class="calendar-day empty"></span>
+            <span class="calendar-day available" data-day="15">15</span>
+            <span class="calendar-day available" data-day="16">16</span>
+            <span class="calendar-day available" data-day="17">17</span>
+            <span class="calendar-day available" data-day="18">18</span>
+            <span class="calendar-day available" data-day="19">19</span>
+            <span class="calendar-day empty"></span>
+          </div>
+
+          <div class="calendar-slots" id="slotsContainer" aria-label="Horarios disponibles para videollamada">
+            <button class="calendar-slot selected" data-time="09:00 AM">09:00 AM (Central)</button>
+            <button class="calendar-slot" data-time="11:30 AM">11:30 AM (Central)</button>
+            <button class="calendar-slot" data-time="02:00 PM">02:00 PM (Central)</button>
+            <button class="calendar-slot" data-time="04:30 PM">04:30 PM (Central)</button>
+          </div>
+
+          <button class="glow-btn glow-btn-primary" id="confirmBookingBtn" style="width: 100%; margin-top: 1.5rem;">
+            Agendar llamada Discovery con contexto
+          </button>
+        </div>
+
+        <!-- WhatsApp Preview Log -->
+        <div class="whatsapp-mockup">
+          <div class="whatsapp-header">
+            <div class="whatsapp-avatar">💬</div>
+            <div>
+              <div class="whatsapp-name" id="salesRepName">Elena Garrido · Aloria TI</div>
+              <div class="whatsapp-status">En línea</div>
+            </div>
+          </div>
+          
+          <div class="whatsapp-bubble" id="whatsappMessage">
+            Cargando mensaje de briefing comercial automatizado...
+            <span class="whatsapp-time">15:28</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. B2B PIPELINE DASHBOARD (Requisito 7)
+       ========================================== -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="container">
+      <div class="section-tag">Capa Ligera de Inteligencia Comercial</div>
+      <h2 class="section-title">Lightweight B2B Pipeline Dashboard</h2>
+      <p class="section-subtitle">
+        Visualiza el pipeline de leads calificados por la IA. Haz clic en cualquier lead de la lista de oportunidades para auditar al instante su Scoring y Brief en el calificador.
+      </p>
+
+      <div class="glass-panel dashboard-panel">
+        <div class="dashboard-header">
+          <div class="dashboard-title-group">
+            <h3 style="font-weight: 800; font-size: 1.25rem;" id="dashboardWorkspaceTitle">Workspace: Agencia de Growth & Marketing</h3>
+            <span class="dashboard-meta" id="dashboardDomain">leads.agency.aloria.ai</span>
+          </div>
+          <div class="dashboard-timeframe">Últimos 30 días · Datos en vivo</div>
+        </div>
+
+        <!-- KPIs principales -->
+        <div class="dashboard-metrics-grid" aria-label="Métricas Principales del Pipeline">
+          <div class="glass-panel metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Leads Captados</span>
+              <div class="metric-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="mLeadsCaptados">184</div>
+            <span class="metric-trend metric-trend-up">↑ +24% vs mes anterior</span>
+          </div>
+
+          <div class="glass-panel metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Leads Calificados</span>
+              <div class="metric-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="mLeadsCalificados">132</div>
+            <span class="metric-trend metric-trend-up">↑ 71.7% tasa de agenda</span>
+          </div>
+
+          <div class="glass-panel metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Oportunidades High Priority</span>
+              <div class="metric-icon-box" style="background: rgba(248,113,113,0.05); color: var(--priority-high);">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="mLeadsHigh" style="color: var(--priority-high);">48</div>
+            <span class="metric-trend metric-trend-up">↑ 26% Prioridad Crítica</span>
+          </div>
+
+          <div class="glass-panel metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Presupuesto Promedio Estimado</span>
+              <div class="metric-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 1.21-1.04 1.87-2.7 1.87-2.03 0-2.83-1.06-2.9-2.4H5.3c.07 2.05 1.84 3.32 3.7 3.76V21h3v-2.19c2.01-.38 3.5-1.62 3.5-3.58 0-2.72-2.2-3.55-3.7-3.73z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="mBudgetAvg">$6,450</div>
+            <span class="metric-trend" style="color: var(--color-text-dim);">Ticket Promedio USD</span>
+          </div>
+
+          <div class="glass-panel metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Tasa de Agenda</span>
+              <div class="metric-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" style="color: var(--color-teal);">42%</div>
+            <span class="metric-trend metric-trend-up">↑ 55 Agendados</span>
+          </div>
+        </div>
+
+        <!-- Pipeline por Estados Visual Board -->
+        <div class="pipeline-board-container" aria-label="Visualización Gráfica del Pipeline">
+          <div class="pipeline-board-title">Pipeline Visual por Estados</div>
+          <div class="pipeline-board-grid">
+            
+            <!-- Columna 1: Por Calificar / Nuevos -->
+            <div class="pipeline-col">
+              <div class="pipeline-col-header">
+                <span>Por Calificar</span>
+                <span class="microcopy-badge" style="padding: 0.05rem 0.25rem;">2</span>
+              </div>
+              <div class="pipeline-card-flow">
+                <strong>Lead Entrante WhatsApp</strong>
+                <span class="p-meta">"hola cuanto cuesta automatizar algo"</span>
+                <span class="p-badge" style="color: var(--priority-nofit); background: var(--priority-nofit-bg);">Nueva</span>
+              </div>
+              <div class="pipeline-card-flow">
+                <strong>Lead Sitio Web</strong>
+                <span class="p-meta">"busco cotización consultoria cloud"</span>
+                <span class="p-badge" style="color: var(--priority-nofit); background: var(--priority-nofit-bg);">Nueva</span>
+              </div>
+            </div>
+
+            <!-- Columna 2: Nurturing / Info Requerida -->
+            <div class="pipeline-col">
+              <div class="pipeline-col-header">
+                <span>Nurturing / Info</span>
+                <span class="microcopy-badge" style="padding: 0.05rem 0.25rem;">2</span>
+              </div>
+              <div class="pipeline-card-flow" id="pipeNurture1">
+                <strong>MarketPilot Agency</strong>
+                <span class="p-meta">Performance B2B. Seguimiento.</span>
+                <span class="p-badge" style="color: var(--priority-nurture); background: var(--priority-nurture-bg);">Needs Nurturing</span>
+              </div>
+              <div class="pipeline-card-flow" id="pipeNurture2">
+                <strong>LegalCore Partners</strong>
+                <span class="p-meta">Intake legal. Falta Presupuesto.</span>
+                <span class="p-badge" style="color: var(--priority-info); background: var(--priority-info-bg);">More Info</span>
+              </div>
+            </div>
+
+            <!-- Columna 3: Alta Prioridad (Discovery Call) -->
+            <div class="pipeline-col" style="border-color: rgba(13,242,201,0.12);">
+              <div class="pipeline-col-header" style="color: var(--color-teal);">
+                <span>Alta Prioridad</span>
+                <span class="microcopy-badge" style="padding: 0.05rem 0.25rem; color: var(--color-teal); border-color: var(--color-teal);">3</span>
+              </div>
+              <div class="pipeline-card-flow" id="pipeHigh1">
+                <strong>NovaOps Consulting</strong>
+                <span class="p-meta">Automatización. Discovery agendado.</span>
+                <span class="p-badge" style="color: var(--priority-high); background: var(--priority-high-bg);">High Priority</span>
+              </div>
+              <!-- Inyecciones dinámicas del nuevo lead completado aparecerán aquí -->
+              <div class="pipeline-card-flow" id="pipeDemoLead" style="display: none; border: 1px solid var(--color-teal); animation: pulseGlow 2s infinite;">
+                <strong id="pipeDemoLeadName">Nuevo Lead Calificado</strong>
+                <span class="p-meta">Lead Qualification. Discovery call.</span>
+                <span class="p-badge" style="color: var(--color-teal); background: rgba(13,242,201,0.1);">High Priority</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tabla Log de Leads Recientes (Requisito 7 & 13 con data-label) -->
+        <div class="glass-panel leads-log-card">
+          <div class="leads-log-header">
+            <h4 style="font-weight: 800; font-size: 0.95rem;">Registro de Oportunidades Recientes</h4>
+            <span style="font-size: 0.7rem; color: var(--color-text-dim);">Haz clic en cualquier lead para auditar su Scoring, Diagnóstico y Brief de forma instantánea</span>
+          </div>
+
+          <div class="leads-table-wrapper">
+            <table class="leads-table" aria-label="Tabla de Oportunidades calificados">
+              <thead>
+                <tr>
+                  <th scope="col">Empresa</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Problema Detectado</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Siguiente Acción</th>
+                </tr>
+              </thead>
+              <tbody id="dashboardLeadsTableBody">
+                <!-- Inyecciones por JS con data-labels para visualización responsiva móvil -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Oportunidades Recomendadas (Requisito 7) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
+          <div class="glass-panel" style="padding: 1.15rem; background: rgba(13, 242, 201, 0.02); border-color: rgba(13, 242, 201, 0.12);">
+            <span class="brief-label" style="color: var(--color-teal); font-size: 0.65rem;">🎯 Recomendación de Seguimiento Inmediato</span>
+            <p style="font-size: 0.78rem; line-height: 1.45; color: var(--color-text-muted); margin-top: 0.35rem;" id="recomendedLeadText">
+              NovaOps Consulting ha agendado una llamada para mañana 09:00 AM. El Fit Score es del 94% con presupuesto calificado de $7k/mes. Revisa su brief antes de iniciar.
+            </p>
+          </div>
+          <div class="glass-panel" style="padding: 1.15rem; background: rgba(255,255,255,0.005);">
+            <span class="brief-label" style="font-size: 0.65rem; color: var(--priority-nurture);">⏳ Leads estancados en Nurturing</span>
+            <p style="font-size: 0.78rem; line-height: 1.45; color: var(--color-text-muted); margin-top: 0.35rem;">
+              Actualmente hay <strong style="color: var(--priority-nurture);" id="mEstancados">32 prospectos</strong> estancados en fase de nurturing. El bot continuará enviándoles casos de estudio para calificar presupuestos.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. BEFORE / AFTER TRANSFORMATION (Requisito 8)
+       ========================================== -->
+  <section class="explanation-section" id="antes-despues" style="background-color: #03060d;">
+    <div class="container">
+      <div class="section-tag">Ingeniería de Conversión</div>
+      <h2 class="section-title">La Transformación en Ventas B2B</h2>
+      <p class="section-subtitle">
+        Compara los cuellos de botella de un proceso comercial a ciegas frente al flujo automatizado y enriquecido en vivo de Aloria AI.
+      </p>
+
+      <div class="before-after-grid">
+        <!-- Antes -->
+        <div class="glass-panel" style="padding: 2rem; border-color: rgba(248,113,113,0.15);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+            <strong style="color: var(--priority-high); font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.02em;">Consulta Fría Convencional (Antes)</strong>
+            <span class="vs-badge-bad">Pérdida de Tiempo</span>
+          </div>
+          
+          <div style="background: rgba(255,255,255,0.015); border: 1px solid var(--border-color); padding: 0.85rem 1rem; border-radius: 8px; margin-bottom: 1.25rem;">
+            <span class="brief-label" style="font-size: 0.65rem;">Lead Recibido:</span>
+            <p style="font-size: 0.82rem; font-style: italic; color: var(--color-text-muted); margin-top: 0.2rem;">
+              "Hola, necesito una cotización para automatizar mi proceso comercial. ¿Qué precio tiene?"
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.78rem; color: var(--color-text-muted);">
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--priority-high); font-weight: bold;">✕</span>
+              <span><strong>No hay alcance ni volumen:</strong> Imposible dimensionar el esfuerzo tecnológico requerido.</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--priority-high); font-weight: bold;">✕</span>
+              <span><strong>No hay presupuesto claro:</strong> Vendedores pierden horas preparando propuestas fuera de su alcance.</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--priority-high); font-weight: bold;">✕</span>
+              <span><strong>No se sabe quién decide:</strong> Llamadas agendadas con personal operativo que no tiene poder de firma.</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--priority-high); font-weight: bold;">✕</span>
+              <span><strong>Sin próxima acción clara:</strong> El lead se enfría en WhatsApp o email antes de poder calificarlo.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Después -->
+        <div class="glass-panel" style="padding: 2rem; border-color: rgba(13,242,201,0.25); background: radial-gradient(circle at 100% 0%, rgba(13,242,201,0.03) 0%, transparent 70%);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+            <strong style="color: var(--color-teal); font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.02em;">Oportunidad Enriquecida con Aloria (Después)</strong>
+            <span class="vs-badge-good">Alta Conversión</span>
+          </div>
+
+          <div style="background: rgba(13,242,201,0.03); border: 1px solid rgba(13, 242, 201, 0.12); padding: 0.85rem 1rem; border-radius: 8px; margin-bottom: 1.25rem;">
+            <span class="brief-label" style="color: var(--color-teal); font-size: 0.65rem;">Contexto Comercial Calificado:</span>
+            <p style="font-size: 0.82rem; font-weight: 700; color: var(--color-text); margin-top: 0.2rem;">
+              NovaOps Consulting · Problema detectado · Volumen validado · Urgencia Alta · Presupuesto $7k aprobado · Decisor Socio · Discovery Call agendada.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.78rem; color: var(--color-text-muted);">
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--color-teal); font-weight: bold;">✓</span>
+              <span><strong>Problema y Pain Points mapeados:</strong> Captura manual ineficiente con pérdida activa de ventas.</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--color-teal); font-weight: bold;">✓</span>
+              <span><strong>Alineación presupuestaria:</strong> Oportunidad de $7,000 USD mensuales calificada y confirmada en vivo.</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--color-teal); font-weight: bold;">✓</span>
+              <span><strong>Mapeo del Decisor:</strong> Socio Comercial y Director de Ventas directamente involucrados.</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+              <span style="color: var(--color-teal); font-weight: bold;">✓</span>
+              <span><strong>Sales Brief generado al instante:</strong> El comercial recibe 9 variables de negocio listas en Slack.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. COMPARA FORMULARIO VS ALORIA (Requisito 9)
+       ========================================== -->
+  <section class="explanation-section" id="como-funciona">
+    <div class="container">
+      <div class="section-tag">Ingeniería de Conversión</div>
+      <h2 class="section-title">No es un simple formulario. Es Inteligencia de Ventas.</h2>
+      <p class="section-subtitle">
+        Los decisores corporativos de alto nivel no llenan formularios aburridos y rechazan los correos impersonales de plantillas frías de prospección.
+      </p>
+
+      <div class="explanation-grid">
+        <div class="explanation-bullets">
+          <div class="explanation-bullet">
+            <div class="explanation-bullet-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" fill="currentColor"/></svg>
+            </div>
+            <div class="explanation-bullet-text">
+              <span class="explanation-bullet-title">Entendimiento profundo de intención</span>
+              <p class="explanation-bullet-desc">Analiza lenguaje libre en WhatsApp o web, extrayendo dolores corporativos y necesidades críticas.</p>
+            </div>
+          </div>
+
+          <div class="explanation-bullet">
+            <div class="explanation-bullet-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z" fill="currentColor"/></svg>
+            </div>
+            <div class="explanation-bullet-text">
+              <span class="explanation-bullet-title">Preguntas inteligentes contextuales</span>
+              <p class="explanation-bullet-desc">Si el prospecto ya mencionó herramientas en su entrada, el bot pasa directo a validar presupuestos o decisores.</p>
+            </div>
+          </div>
+
+          <div class="explanation-bullet">
+            <div class="explanation-bullet-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></svg>
+            </div>
+            <div class="explanation-bullet-text">
+              <span class="explanation-bullet-title">Compilación de AI Sales Brief</span>
+              <p class="explanation-bullet-desc">Centraliza y estructura las respuestas recopiladas en un reporte ejecutivo listo para tu equipo de ventas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla Comparativa VS (Requisito 9) -->
+        <div class="glass-panel vs-card">
+          <div class="vs-header">
+            <div class="vs-col vs-col-left"><span class="vs-col-title">Formulario Tradicional</span></div>
+            <span style="font-weight: 800; color: var(--color-teal); font-size: 0.8rem;">VS</span>
+            <div class="vs-col vs-col-right" style="text-align: right;"><span class="vs-col-title">Aloria AI Commerce</span></div>
+          </div>
+
+          <div class="vs-rows">
+            <div class="vs-row">
+              <span class="vs-row-label">Tasa de finalización</span>
+              <span class="vs-badge-bad">11% - 15%</span>
+              <span class="vs-badge-good">68% - 79%</span>
+            </div>
+            <div class="vs-row">
+              <span class="vs-row-label">Flexibilidad de campos</span>
+              <span class="vs-badge-bad">Estricta / Molesta</span>
+              <span class="vs-badge-good">Conversación fluida</span>
+            </div>
+            <div class="vs-row">
+              <span class="vs-row-label">Calidad de datos</span>
+              <span class="vs-badge-bad">Vaga (ej. "hola cotizar")</span>
+              <span class="vs-badge-good">9 variables de negocio</span>
+            </div>
+            <div class="vs-row">
+              <span class="vs-row-label">Priorización de pipeline</span>
+              <span class="vs-badge-bad">Manual (toma horas)</span>
+              <span class="vs-badge-good">En vivo en el Dashboard</span>
+            </div>
+            <div class="vs-row">
+              <span class="vs-row-label">Preparación del Comercial</span>
+              <span class="vs-badge-bad">Llamadas a ciegas</span>
+              <span class="vs-badge-good">Sales Brief en Slack/CRM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. B2B SECTOR USE CASES (Requirement 10 - 10 Sectors Grid)
+       ========================================== -->
+  <section class="cases-section" id="casos-de-uso">
+    <div class="container">
+      <div class="section-tag">Adaptación Sectorial B2B</div>
+      <h2 class="section-title">Especialización de Calificación por Sector</h2>
+      <p class="section-subtitle">
+        Aloria adapta sus criterios de scoring, tono del Sales Assistant y alcance de brief sugerido dependiendo de tu nicho específico.
+      </p>
+
+      <div class="cases-grid" id="casesGrid">
+        <!-- 1. Consultorías -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Consultorías B2B</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Me interesa optimizar mis ventas."<br><strong>Problema:</strong> Sin alcance, urgencia ni decisores mapeados.<br><strong>Solución IA:</strong> Identifica el dolor operativo profundo, evalúa el volumen y califica la participación directa de socios de decisión.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Precios de asesoría sin dimensionar alcance real o madurez corporativa."</div>
+          </div>
+        </div>
+
+        <!-- 2. Agencias B2B -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Agencias B2B</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Quiero cotizar pauta."<br><strong>Problema:</strong> Leads que no cumplen el presupuesto publicitario mínimo.<br><strong>Solución IA:</strong> Filtra prospectos sin presupuestos mínimos de inversión, valida objetivos de crecimiento y recopila stack tecnológico.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Peticiones de planes de contenido sin metas de adquisición reales."</div>
+          </div>
+        </div>
+
+        <!-- 3. Despachos Legales -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5v-2h7v2zm3-4H5v-2h10v2zm3-4H5V7h13v2z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Despachos Legales</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Busco defensa legal."<br><strong>Problema:</strong> Consultas genéricas sin detalles ni contexto del litigio.<br><strong>Solución IA:</strong> Categoriza el lead por materia jurídica, detecta la urgencia procesal de los litigios y recopila datos básicos fiscales.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Solicitudes genéricas de 'defensa legal' sin revelar detalles del caso."</div>
+          </div>
+        </div>
+
+        <!-- 4. Contabilidad / Fiscal -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 1.21-1.04 1.87-2.7 1.87-2.03 0-2.83-1.06-2.9-2.4H5.3c.07 2.05 1.84 3.32 3.7 3.76V21h3v-2.19c2.01-.38 3.5-1.62 3.5-3.58 0-2.72-2.2-3.55-3.7-3.73z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Contabilidad / Fiscal</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Necesito un contador."<br><strong>Problema:</strong> Pymes buscando microservicios contables no viables.<br><strong>Solución IA:</strong> Identifica el volumen de facturación anual, el régimen tributario corporativo y los cuellos de botella de auditoría.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Leads buscando cotizar auditorías fiscales sin especificar régimen fiscal."</div>
+          </div>
+        </div>
+
+        <!-- 5. Integradores Tecnológicos -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Integradores Tecnológicos</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Necesito automatizar procesos internos."<br><strong>Problema:</strong> No se sabe alcance, sistemas actuales ni urgencia.<br><strong>Solución IA:</strong> Mapea la infraestructura del software actual, ERPs vinculados, volúmenes de bases de datos y plazos de migración.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Inquiries vagas pidiendo 'integrar bases de datos' sin stack técnico."</div>
+          </div>
+        </div>
+
+        <!-- 6. Ciberseguridad -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Ciberseguridad</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Cotizar análisis de vulnerabilidad."<br><strong>Problema:</strong> Desconocimiento del número de servidores y redes a auditar.<br><strong>Solución IA:</strong> Identifica normativas de cumplimiento requeridas (ISO/PCI), volumen de servidores e historial de incidentes.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Peticiones de cotización de análisis de vulnerabilidades sin tamaño de red."</div>
+          </div>
+        </div>
+
+        <!-- 7. Capacitación Empresarial -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Capacitación Empresarial</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Ocupo cursos de liderazgo."<br><strong>Problema:</strong> Leads pidiendo cotizaciones sin especificar número de personas.<br><strong>Solución IA:</strong> Evalúa el número de colaboradores a entrenar, el formato de instrucción (presencial/digital) y el presupuesto por headcount.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Leads pidiendo presupuestos de talleres de liderazgo sin número de personas."</div>
+          </div>
+        </div>
+
+        <!-- 8. Servicios Industriales -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.3C.5 6.7.9 9.8 2.9 11.8c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.5z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Servicios Industriales</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Presupuesto para mantenimiento."<br><strong>Problema:</strong> Peticiones sin especificar maquinaria ni localización.<br><strong>Solución IA:</strong> Define el tipo de maquinaria, la ubicación geográfica de la planta industrial y la urgencia crítica por paros operativos.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Cotizaciones de mantenimiento de calderas sin tipo de equipo ni ubicación."</div>
+          </div>
+        </div>
+
+        <!-- 9. RH / Outsourcing -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">RH / Outsourcing</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Necesitamos reclutar asesores."<br><strong>Problema:</strong> Consultas sin perfiles ni salarios definidos.<br><strong>Solución IA:</strong> Identifica el número de vacantes críticas por mes, el nivel del seniority técnico y los plazos requeridos para cobertura.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Solicitudes de reclutamiento pidiendo tarifas sin perfiles definidos."</div>
+          </div>
+        </div>
+
+        <!-- 10. Marketing / Performance -->
+        <div class="glass-panel case-card">
+          <div class="case-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5v-2h7v2zm3-4H5v-2h10v2zm3-4H5V7h13v2z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="case-title">Marketing / Performance</h3>
+          <p class="case-desc"><strong>Lead típico:</strong> "Quiero escalar mi e-commerce."<br><strong>Problema:</strong> Leads pidiendo cotizaciones sin volumen de tráfico ni presupuesto de Ads.<br><strong>Solución IA:</strong> Califica volumen de tráfico mensual de e-commerce, presupuestos de Ads mínimos, y metas de optimización de ROAS.</p>
+          <div class="case-brief-preview">
+            <div class="case-preview-label">Dolor de Calificación:</div>
+            <div class="case-preview-text">"Prospectos pidiendo pauta publicitaria con presupuestos de Ads no viables."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       9. CALL TO ACTION FINAL (Requisito 11)
+       ========================================== -->
+  <section class="container" style="padding: 6rem 0;">
+    <div class="glass-panel" style="padding: 4rem 1.5rem; text-align: center; background: radial-gradient(circle, rgba(13, 242, 201, 0.06) 0%, transparent 80%); overflow: hidden; position: relative;">
+      <h2 style="font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem;">
+        Tus mejores oportunidades no deberían perderse por falta de contexto.
+      </h2>
+      <p style="font-size: 1rem; color: var(--color-text-muted); max-width: 610px; margin: 0 auto 2.25rem; font-family: var(--font-secondary); font-weight: 300; line-height: 1.5;">
+        Aloria ayuda a convertir preguntas incompletas en oportunidades comerciales listas para seguimiento.
+      </p>
+      <div style="display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#calificador" class="glow-btn glow-btn-primary">Solicitar una demo para mi negocio</a>
+        <a href="https://vercel.com" target="_blank" class="glow-btn glow-btn-secondary">Ver otras demos de Aloria</a>
+      </div>
+      <span class="microcopy-badge" style="margin-top: 1.5rem; text-transform: none; font-size: 0.65rem;">
+        Ideal para servicios B2B, consultorías, agencias, despachos e integradores que reciben leads por WhatsApp, web, email o LinkedIn.
+      </span>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER PREMIUM
+       ========================================== -->
+  <footer class="footer" style="padding-bottom: 5rem;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-group">
+            <div class="logo-icon">A</div>
+            <div class="logo-text">Aloria <span class="logo-tag">B2B</span></div>
+          </div>
+          <p class="footer-desc">
+            Transformando leads fríos e incompletos en briefs accionables listos para el cierre comercial.
+          </p>
+        </div>
+        
+        <div>
+          <h5 class="footer-col-title">Demo B2B</h5>
+          <ul class="footer-links">
+            <li><a href="#calificador" class="footer-link">Calificador Assistant</a></li>
+            <li><a href="#dashboard" class="footer-link">Lightweight Pipeline</a></li>
+            <li><a href="#antes-despues" class="footer-link">Proceso Antes/Después</a></li>
+            <li><a href="#como-funciona" class="footer-link">Ingeniería de Conversión</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-col-title">Sectores</h5>
+          <ul class="footer-links">
+            <li><a href="#casos-de-uso" class="footer-link">Consultorías B2B</a></li>
+            <li><a href="#casos-de-uso" class="footer-link">Agencias & Growth</a></li>
+            <li><a href="#casos-de-uso" class="footer-link">Integradores de TI</a></li>
+            <li><a href="#casos-de-uso" class="footer-link">Ciberseguridad Corporativa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-col-title">Aloria Suite</h5>
+          <p class="footer-desc" style="font-size: 0.78rem; line-height: 1.45; color: var(--color-text-dim);">
+            Esta demo forma parte del ecosistema de Aloria Commerce. Optimiza tus operaciones comerciales mediante inteligencia conversacional.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Aloria B2B Lead Intelligence. Diseñado por y para equipos de ventas B2B.</span>
+        <div class="footer-meta-links">
+          <span class="footer-meta-link" style="cursor: pointer;">Términos de la Demo</span>
+          <span class="footer-meta-link" style="cursor: pointer;">Configuración de Workspace</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       DISCLAIMER BANNER FIJO (Requisito 14)
+       ========================================== -->
+  <div class="disclaimer-banner">
+    <div class="container disclaimer-container">
+      <strong>⚠️ DEMO B2B LEAD INTELLIGENCE:</strong>
+      <span>Demo con datos simulados. En una implementación real, Aloria puede conectar este flujo con WhatsApp, CRM, email, calendario, formularios web y dashboards comerciales.</span>
+      <span class="microcopy-badge" style="padding: 0.05rem 0.35rem; border-color: var(--color-teal); color: var(--color-teal); font-size: 0.62rem;">AI-assisted, sales-approved. La IA ayuda a calificar, resumir y priorizar. El equipo comercial conserva la decisión final.</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       JAVASCRIPT APPLICATION ENGINE
+       ========================================== -->
+  <script src="app.js"></script>
+</body>
+</html>
