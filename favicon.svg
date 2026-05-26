@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Mask to take a perfect bite out of the bottom-right corner of the dark blue squircle -->
+    <mask id="corner-bite">
+      <rect width="512" height="512" fill="#ffffff" />
+      <circle cx="426" cy="426" r="76" fill="#000000" />
+    </mask>
+  </defs>
+
+  <!-- Deep Navy squircle matching the brand base color with the bottom-right bite -->
+  <rect x="54" y="54" width="404" height="404" rx="110" fill="#080C11" mask="url(#corner-bite)" />
+
+  <!-- The stylized white letter 'A' / chevron in the center -->
+  <!-- Apex at (256, 160), bottom right at (358, 335), bottom left at (154, 335) -->
+  <!-- Designed with elegant curvatures at the apex and inner corners to look extremely premium -->
+  <path d="M 256 160 
+           C 272 160, 278 168, 286 182 
+           L 358 316 
+           C 364 328, 362 335, 348 335 
+           L 310 335 
+           C 300 335, 294 330, 288 320 
+           L 256 260 
+           L 224 320 
+           C 218 330, 212 335, 202 335 
+           L 164 335 
+           C 150 335, 148 328, 154 316 
+           L 226 182 
+           C 234 168, 240 160, 256 160 Z" 
+        fill="#ffffff" />
+
+  <!-- Small Turquoise/Teal squircle in the bottom-right corner -->
+  <rect x="378" y="378" width="76" height="76" rx="24" fill="#0BA896" />
+</svg>

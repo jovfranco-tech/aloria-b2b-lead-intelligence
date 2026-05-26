@@ -1233,6 +1233,17 @@ ${risks}
     });
   });
 
+  // Theme Toggle Event Listener
+  const themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("aloria_theme", newTheme);
+    });
+  }
+
   // Hamburger Mobile Menu
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.querySelector(".nav-links");

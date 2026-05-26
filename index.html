@@ -3,31 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aloria B2B Lead Intelligence · Demo Premium AI Commerce</title>
-  <meta name="description" content="Aloria B2B Lead Intelligence califica prospectos, genera briefs comerciales y prioriza oportunidades antes de la primera llamada.">
+  <title>Aloria B2B Lead Intelligence | Demo para Servicios B2B</title>
+  <meta name="description" content="Demo de Aloria B2B Lead Intelligence para calificar prospectos, generar briefs comerciales y priorizar oportunidades antes de la primera llamada.">
   <meta name="color-scheme" content="dark">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://aloria-b2b-lead-intelligence.vercel.app/" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✦</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#0b1426">
   
   <!-- Open Graph Metadata -->
-  <meta property="og:title" content="Aloria B2B Lead Intelligence · Demo Premium AI Commerce" />
-  <meta property="og:description" content="Aloria B2B Lead Intelligence califica prospectos, genera briefs comerciales y prioriza oportunidades antes de la primera llamada." />
+  <meta property="og:title" content="Aloria B2B Lead Intelligence | Demo para Servicios B2B" />
+  <meta property="og:description" content="Demo de Aloria B2B Lead Intelligence para calificar prospectos, generar briefs comerciales y priorizar oportunidades antes de la primera llamada." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aloria-b2b-lead-intelligence.vercel.app/" />
   <meta property="og:locale" content="es_MX" />
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Aloria B2B Lead Intelligence · Demo Premium AI Commerce" />
-  <meta name="twitter:description" content="Aloria B2B Lead Intelligence califica prospectos, genera briefs comerciales y prioriza oportunidades antes de la primera llamada." />
+  <meta name="twitter:title" content="Aloria B2B Lead Intelligence | Demo para Servicios B2B" />
+  <meta name="twitter:description" content="Demo de Aloria B2B Lead Intelligence para calificar prospectos, generar briefs comerciales y priorizar oportunidades antes de la primera llamada." />
 
   <link rel="stylesheet" href="index.css">
   <script>
-    {
-      const colorScheme = localStorage.getItem("color-scheme") || "dark";
-      document.documentElement.setAttribute("data-theme", colorScheme);
-    }
+    (function() {
+      const stored = localStorage.getItem("aloria_theme");
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = stored || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
   </script>
 </head>
 <body>
@@ -37,11 +40,13 @@
        ========================================== -->
   <nav class="navbar" id="navbar">
     <div class="container navbar-container">
-      <div class="logo-group">
-        <div class="logo-icon">A</div>
-        <div class="logo-text">
-          Aloria 
-          <span class="logo-tag">B2B Intelligence</span>
+      <div class="logo-group" style="display: flex; align-items: center; gap: 10px;">
+        <div class="nav__mark" aria-hidden="true" style="width: 24px; height: 24px; border-radius: 7px; background: #080C11; display: inline-flex; align-items: center; justify-content: center; position: relative;">
+          <svg viewBox="0 0 16 16" fill="none" style="width: 11px; height: 11px;"><path d="M8 3.2c-.3 0-.5.2-.7.5l-3.8 6.8c-.3.5-.2.9.3.9h1.3c.4 0 .7-.2 1-.6L8 7.3l1.9 3.5c.3.4.6.6 1 .6h1.3c.5 0 .6-.4.3-.9l-3.8-6.8c-.2-.3-.4-.5-.7-.5z" fill="white"/></svg>
+          <div style="position: absolute; right: -2px; bottom: -2px; width: 6px; height: 6px; border-radius: 2px; background: #0BA896; border: 1.5px solid #080C11;"></div>
+        </div>
+        <div class="logo-text" style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; color: var(--color-text); display: inline-flex; align-items: center; gap: 6px; margin: 0;">
+          Aloria <span class="logo-tag" style="font-weight: 400; color: var(--color-text-dim);">B2B Lead Intelligence</span>
         </div>
       </div>
 
@@ -56,6 +61,10 @@
       </div>
 
       <div class="navbar-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema" style="background: transparent; border: none; color: var(--color-text); font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; transition: background-color 0.2s; padding: 0; margin-right: 8px;">
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
         <!-- Selector de Workspace (Requisito 13 & 15) -->
         <div class="workspace-selector-container">
           <button class="workspace-select" id="workspaceBtn" aria-label="Cambiar Workspace Demo" aria-haspopup="listbox">
@@ -1023,9 +1032,12 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo-group">
-            <div class="logo-icon">A</div>
-            <div class="logo-text">Aloria <span class="logo-tag">B2B</span></div>
+          <div class="logo-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <div class="nav__mark" aria-hidden="true" style="width: 24px; height: 24px; border-radius: 7px; background: #080C11; display: inline-flex; align-items: center; justify-content: center; position: relative;">
+              <svg viewBox="0 0 16 16" fill="none" style="width: 11px; height: 11px;"><path d="M8 3.2c-.3 0-.5.2-.7.5l-3.8 6.8c-.3.5-.2.9.3.9h1.3c.4 0 .7-.2 1-.6L8 7.3l1.9 3.5c.3.4.6.6 1 .6h1.3c.5 0 .6-.4.3-.9l-3.8-6.8c-.2-.3-.4-.5-.7-.5z" fill="white"/></svg>
+              <div style="position: absolute; right: -2px; bottom: -2px; width: 6px; height: 6px; border-radius: 2px; background: #0BA896; border: 1.5px solid #080C11;"></div>
+            </div>
+            <div class="logo-text" style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--color-text);">Aloria <span class="logo-tag" style="font-weight: 400; color: var(--color-text-dim);">B2B Lead Intelligence</span></div>
           </div>
           <p class="footer-desc">
             Transformando leads fríos e incompletos en briefs accionables listos para el cierre comercial.
@@ -1060,12 +1072,9 @@
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2026 Aloria B2B Lead Intelligence. Diseñado por y para equipos de ventas B2B.</span>
-        <div class="footer-meta-links">
-          <span class="footer-meta-link" style="cursor: pointer;">Términos de la Demo</span>
-          <span class="footer-meta-link" style="cursor: pointer;">Configuración de Workspace</span>
-        </div>
+      <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start; justify-content: center;">
+        <span class="footer-copy">© 2026 Aloria B2B Lead Intelligence. Demo AI Commerce diseñada por Aloria.</span>
+        <a href="https://www.aloria.mx" target="_blank" rel="noopener noreferrer" style="color: var(--color-teal); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Volver a Aloria <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </footer>
